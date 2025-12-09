@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SLICT Properties | Premium Real Estate in Sri Lanka</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3a5f;
+            --secondary: #c9a75c;
+            --accent: #2a6e3f;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+
+        .contact-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-header a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .contact-header a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 95, 0.8), rgba(26, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .cta-button:hover {
+            background-color: #b08c40;
+            transform: translateY(-3px);
+        }
+
+        /* Property Listings */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            background-color: white;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            z-index: 0;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .property-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .property-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .property-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .property-content {
+            padding: 25px;
+        }
+
+        .property-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .property-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .property-detail {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.95rem;
+        }
+
+        .property-detail i {
+            color: var(--secondary);
+        }
+
+        .property-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 15px 0;
+        }
+
+        .property-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .property-features {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .feature-tag {
+            background-color: #f0f7ff;
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Highlight Section */
+        .highlight {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .highlight-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .highlight h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: #b08c40;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #2c3e50;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .highlight h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .property-details {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        /* New styles for share functionality */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+        
+        .property-card:target {
+            box-shadow: 0 0 0 3px var(--secondary);
+            animation: highlight 2s ease;
+        }
+        
+        @keyframes highlight {
+            0% { box-shadow: 0 0 0 3px var(--secondary); }
+            50% { box-shadow: 0 0 0 8px rgba(201, 167, 92, 0.5); }
+            100% { box-shadow: 0 0 0 3px var(--secondary); }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-image-gallery {
+            position: relative;
+            height: 400px;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
+        .image-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .image-nav:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .image-nav.prev {
+            left: 20px;
+        }
+
+        .image-nav.next {
+            right: 20px;
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .modal-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 30px;
+        }
+
+        .modal-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 10px;
+        }
+
+        .modal-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-detail-item i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .modal-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .modal-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .modal-btn {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .modal-btn.primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .modal-btn.primary:hover {
+            background: #b08c40;
+            transform: translateY(-2px);
+        }
+
+        .modal-btn.secondary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .modal-btn.secondary:hover {
+            background: #2a5298;
+            transform: translateY(-2px);
+        }
+
+        .modal-btn.outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .modal-btn.outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .property-card {
+            cursor: pointer;
+        }
+
+        .view-details-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 15px;
+        }
+
+        .view-details-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 0;
+                border-radius: 0;
+                max-height: 100vh;
+            }
+
+            .modal-image-gallery {
+                height: 250px;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-price {
+                font-size: 1.5rem;
+            }
+
+            .modal-details-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .modal-btn {
+                width: 100%;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="container header-content">
+<div class="logo">
+<i class="fas fa-building"></i>
+<h1>SLICT Properties</h1>
+</div>
+<div class="contact-header">
+<a href="tel:+947 52 53 99 88">
+<i class="fas fa-phone"></i> +94 75 253 9988
+                </a>
+<a href="https://wa.me/94752539988" target="_blank">
+<i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero">
+<div class="container hero-content">
+<h2>Premium Properties in Prime Locations</h2>
+<p>Discover exclusive land and commercial opportunities in Sri Lanka's most sought-after areas. Invest in prime real estate with guaranteed returns.</p>
+<a class="cta-button" href="#contact">Contact Us Today</a>
+</div>
+</section>
+<!-- Property Listings -->
+<section class="container">
+<div class="section-title">
+<h2>Featured Properties</h2>
+</div>
+<div class="properties-grid">
+<!-- Property 1 -->
+<div class="property-card" id="property-SLICT2010-1">
+<div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80');">
+<div class="property-tag">Commercial/Residential</div>
+</div>
+<div class="property-content">
+<h3 class="property-title">Prime Land for Sale - Modara Main Road</h3>
+<div class="property-details">
+<div class="property-detail">
+<i class="fas fa-map-marker-alt"></i>
+<span>Main Road, Modara</span>
+</div>
+<div class="property-detail">
+<i class="fas fa-expand"></i>
+<span>12 Perches</span>
+</div>
+<div class="property-detail">
+<i class="fas fa-tag"></i>
+<span>Ref: SLICT2010-1</span>
+</div>
+</div>
+<div class="property-price">LKR 58.2M</div>
+<div class="property-description">
+                        Highly accessible main road, ideal for development. Zoning: Commercial/Residential
+                    </div>
+<div class="property-features">
+<span class="feature-tag">Main Road Access</span>
+<span class="feature-tag">High Development Potential</span>
+<span class="feature-tag">Prime Location</span>
+</div><button onclick="shareProperty('SLICT2010-1')" style="margin-top: 15px; background-color: var(--secondary); color: white; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer; font-weight: 500;">Share</button>
+</div>
+</div>
+<!-- Property 2 -->
+<div class="property-card" id="property-SLICT2010-2">
+<div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80');">
+<div class="property-tag">Investment Opportunity</div>
+</div>
+<div class="property-content">
+<h3 class="property-title">Large Land for Sale - Madampitiya Road</h3>
+<div class="property-details">
+<div class="property-detail">
+<i class="fas fa-map-marker-alt"></i>
+<span>Madampitiya Road</span>
+</div>
+<div class="property-detail">
+<i class="fas fa-expand"></i>
+<span>81 Perches</span>
+</div>
+<div class="property-detail">
+<i class="fas fa-tag"></i>
+<span>Ref: SLICT2010-2</span>
+</div>
+</div>
+<div class="property-price">LKR 324M</div>
+<div class="property-description">
+                        Prime location for commercial/residential investment with excellent development potential.
+                    </div>
+<div class="property-features">
+<span class="feature-tag">Large Plot</span>
+<span class="feature-tag">High ROI</span>
+<span class="feature-tag">Strategic Location</span>
+</div><button onclick="shareProperty('SLICT2010-2')" style="margin-top: 15px; background-color: var(--secondary); color: white; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer; font-weight: 500;">Share</button>
+</div>
+</div>
+<!-- Property 3 -->
+<div class="property-card" id="property-SLICT2010-3">
+<div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80');">
+<div class="property-tag">Negotiable Price</div>
+</div>
+<div class="property-content">
+<h3 class="property-title">Prime Land on Baseline Road</h3>
+<div class="property-details">
+<div class="property-detail">
+<i class="fas fa-map-marker-alt"></i>
+<span>Baseline Road</span>
+</div>
+<div class="property-detail">
+<i class="fas fa-expand"></i>
+<span>8.8 Perches</span>
+</div>
+<div class="property-detail">
+<i class="fas fa-tag"></i>
+<span>Ref: SLICT2010-3</span>
+</div>
+</div>
+<div class="property-price">LKR 52.8M (Negotiable)</div>
+<div class="property-description">
+                        Excellent accessibility for development in a rapidly growing area. Perfect for commercial or residential projects.
+                    </div>
+<div class="property-features">
+<span class="feature-tag">High Traffic Area</span>
+<span class="feature-tag">Flexible Pricing</span>
+<span class="feature-tag">Development Ready</span>
+</div><button onclick="shareProperty('SLICT2010-3')" style="margin-top: 15px; background-color: var(--secondary); color: white; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer; font-weight: 500;">Share</button>
+</div>
+</div>
+<!-- Property 4 -->
+<div class="property-card" id="property-SLICT2010-4">
+<div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80');">
+<div class="property-tag">Mixed Use</div>
+</div>
+<div class="property-content">
+<h3 class="property-title">Commercial &amp; Residential Building - Colombo 10</h3>
+<div class="property-details">
+<div class="property-detail">
+<i class="fas fa-map-marker-alt"></i>
+<span>Panchikawatta Road</span>
+</div>
+<div class="property-detail">
+<i class="fas fa-expand"></i>
+<span>2.08 Perches | 3 Floors</span>
+</div>
+<div class="property-detail">
+<i class="fas fa-tag"></i>
+<span>Ref: SLICT2010-4</span>
+</div>
+</div>
+<div class="property-price">LKR 60M</div>
+<div class="property-description">
+                        Ground: 3 Shops | 1st Floor: 4 Shops + Washroom | 2nd Floor: 2BR Apartment
+                    </div>
+<div class="property-features">
+<span class="feature-tag">Rental Income</span>
+<span class="feature-tag">Mixed Use</span>
+<span class="feature-tag">Fully Functional</span>
+<span class="feature-tag">Prime Colombo Location</span>
+</div><button onclick="shareProperty('SLICT2010-4')" style="margin-top: 15px; background-color: var(--secondary); color: white; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer; font-weight: 500;">Share</button>
+</div>
+</div>
+<!-- Property 5 -->
+<div class="property-card" id="property-SLICT2010-5">
+<div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1170&amp;q=80');">
+<div class="property-tag">Business Opportunity</div>
+</div>
+<div class="property-content">
+<h3 class="property-title">Hotel for Sale - Prime Location in Dehiwala</h3>
+<div class="property-details">
+<div class="property-detail">
+<i class="fas fa-map-marker-alt"></i>
+<span>Kawdana Road, Dehiwala</span>
+</div>
+<div class="property-detail">
+<i class="fas fa-bed"></i>
+<span>24 Spacious Rooms</span>
+</div>
+<div class="property-detail">
+<i class="fas fa-tag"></i>
+<span>Ref: SLICT2010-5</span>
+</div>
+</div>
+<div class="property-price">Rs. 225 Million</div>
+<div class="property-description">
+                        Fully operational hotel in highly sought-after Dehiwala - Kawdana Road area. Immediate sale opportunity.
+                    </div>
+<div class="property-features">
+<span class="feature-tag">Immediate Sale</span>
+<span class="feature-tag">Premium Property</span>
+<span class="feature-tag">Commercial Zone</span>
+<span class="feature-tag">Rare Opportunity</span>
+</div><button onclick="shareProperty('SLICT2010-5')" style="margin-top: 15px; background-color: var(--secondary); color: white; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer; font-weight: 500;">Share</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Highlight Section -->
+<section class="highlight">
+<div class="container highlight-content">
+<h3>Best Deals in Prime Colombo Locations</h3>
+<p>Our properties offer exceptional investment opportunities in Sri Lanka's most valuable real estate markets. With strategic locations, commercial zoning, and development potential, these assets promise significant returns.</p>
+<a class="cta-button" href="https://property.slict.lk">View All Listings</a>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+<div class="container">
+<div class="section-title">
+<h2>Contact Us</h2>
+</div>
+<div class="contact-container">
+<div class="contact-info">
+<h3>Get In Touch</h3>
+<p>Reach out to us for inquiries, property viewings, or investment consultations. Our team is ready to assist you.</p>
+<div class="contact-details">
+<div class="contact-item">
+<i class="fas fa-phone"></i>
+<div>
+<h4>Phone</h4>
+<p>+94 75 253 9988</p>
+</div>
+</div>
+<div class="contact-item">
+<i class="fab fa-whatsapp"></i>
+<div>
+<h4>WhatsApp</h4>
+<p><a href="https://wa.me/94752539988" target="_blank">Chat with us on WhatsApp</a></p>
+</div>
+</div>
+<div class="contact-item">
+<i class="fas fa-globe"></i>
+<div>
+<h4>Website</h4>
+<p><a href="https://property.slict.lk" target="_blank">property.slict.lk</a></p>
+</div>
+</div>
+</div>
+<div class="social-links">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+</div>
+</div>
+<div class="contact-form">
+<h3>Send a Message</h3>
+<form>
+<div class="form-group">
+<label for="name">Full Name</label>
+<input id="name" placeholder="Enter your name" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">Email Address</label>
+<input id="email" placeholder="Enter your email" type="email"/>
+</div>
+<div class="form-group">
+<label for="phone">Phone Number</label>
+<input id="phone" placeholder="Enter your phone number" type="tel"/>
+</div>
+<div class="form-group">
+<label for="property">Property of Interest</label>
+<select class="form-control" id="property">
+<option value="">Select a property</option>
+<option value="SLICT2010-1">Prime Land - Modara Main Road</option>
+<option value="SLICT2010-2">Large Land - Madampitiya Road</option>
+<option value="SLICT2010-3">Land on Baseline Road</option>
+<option value="SLICT2010-4">Commercial Building - Colombo 10</option>
+<option value="SLICT2010-5">Hotel - Dehiwala</option>
+</select>
+</div>
+<div class="form-group">
+<label for="message">Message</label>
+<textarea id="message" placeholder="Enter your message"></textarea>
+</div>
+<button class="submit-btn" type="submit">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Property Details Modal -->
+<div id="propertyModal" class="modal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">×</button>
+
+        <div class="modal-image-gallery">
+            <img id="modalImage" class="modal-image" src="" alt="Property Image">
+            <button class="image-nav prev" onclick="prevImage()" style="display:none;">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="image-nav next" onclick="nextImage()" style="display:none;">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="image-counter" id="imageCounter" style="display:none;">1 / 1</div>
+        </div>
+
+        <div class="modal-body">
+            <h2 class="modal-title" id="modalTitle">Property Title</h2>
+            <div class="modal-price" id="modalPrice">LKR 0</div>
+
+            <div class="modal-details-grid" id="modalDetailsGrid">
+                <!-- Details will be injected here -->
+            </div>
+
+            <div class="modal-description" id="modalDescription">
+                Property description will appear here.
+            </div>
+
+            <div id="modalFeaturesContainer" style="display:none;">
+                <h3 style="color: var(--primary); margin-bottom: 15px;">
+                    <i class="fas fa-star"></i> Features
+                </h3>
+                <div class="modal-features" id="modalFeatures">
+                    <!-- Features will be injected here -->
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="modal-btn primary" onclick="contactAboutProperty()">
+                    <i class="fas fa-phone"></i> Contact Us
+                </button>
+                <button class="modal-btn secondary" onclick="whatsappInquiry()">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                </button>
+                <button class="modal-btn outline" onclick="shareCurrentProperty()">
+                    <i class="fas fa-share-alt"></i> Share Property
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-column">
+<h4>SLICT Properties</h4>
+<p>Your trusted partner for premium real estate investments in Sri Lanka. We specialize in prime locations with high growth potential.</p>
+<div class="social-links">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h4>Quick Links</h4>
+<ul class="footer-links">
+<li><a href="#">Home</a></li>
+<li><a href="#">Properties</a></li>
+<li><a href="#">Commercial</a></li>
+<li><a href="#">Residential</a></li>
+<li><a href="#">Land</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Properties</h4>
+<ul class="footer-links">
+<li><a href="#property-SLICT2010-1">Modara Main Road</a></li>
+<li><a href="#property-SLICT2010-2">Madampitiya Road</a></li>
+<li><a href="#property-SLICT2010-3">Baseline Road</a></li>
+<li><a href="#property-SLICT2010-4">Colombo 10 Building</a></li>
+<li><a href="#property-SLICT2010-5">Dehiwala Hotel</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Contact Info</h4>
+<ul class="footer-links">
+<li><i class="fas fa-phone"></i> +94 75 253 9988</li>
+<li><i class="fab fa-whatsapp"></i> WhatsApp</li>
+<li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="05716064684576696c66712b696e">[email&#160;protected]</a></li>
+<li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+</ul>
+</div>
+</div>
+<div class="copyright">
+<p>© 2025 SLICT Properties. All rights reserved. | Website: <a href="https://property.slict.lk">property.slict.lk</a></p>
+</div>
+</div>
+</footer>
+<script>
+(function() {
+    const API_ENDPOINT = 'https://erp-git-apiconnect-slictteam.vercel.app/api/public/real-estate/properties'; // or your production URL
+    const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1170&q=80';
+    const CACHE_KEY = 'slict_properties_cache';
+    const CACHE_TIMESTAMP_KEY = 'slict_properties_timestamp';
+    const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes cache duration
+
+    const propertiesGrid = document.querySelector('.properties-grid');
+    if (!propertiesGrid) {
+        return;
+    }
+
+    // Cache utilities
+    const cacheUtils = {
+        save: (data) => {
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+                localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
+                console.log('✅ Properties cached successfully:', data.length, 'properties');
+            } catch (error) {
+                console.warn('Failed to cache properties:', error);
+            }
+        },
+
+        load: () => {
+            try {
+                const cached = localStorage.getItem(CACHE_KEY);
+                return cached ? JSON.parse(cached) : null;
+            } catch (error) {
+                console.warn('Failed to load cached properties:', error);
+                return null;
+            }
+        },
+
+        getTimestamp: () => {
+            const timestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
+            return timestamp ? parseInt(timestamp, 10) : 0;
+        },
+
+        isValid: () => {
+            const timestamp = cacheUtils.getTimestamp();
+            const age = Date.now() - timestamp;
+            return age < CACHE_DURATION;
+        },
+
+        clear: () => {
+            localStorage.removeItem(CACHE_KEY);
+            localStorage.removeItem(CACHE_TIMESTAMP_KEY);
+            console.log('🗑️ Cache cleared');
+        }
+    };
+
+    const lkrFormatter = new Intl.NumberFormat('en-LK', {
+        style: 'currency',
+        currency: 'LKR',
+        maximumFractionDigits: 0
+    });
+
+    const truncate = (text = '', maxLength = 100) => {
+        const safeText = typeof text === 'string' ? text : String(text ?? '');
+        if (safeText.length <= maxLength) {
+            return safeText;
+        }
+        return `${safeText.slice(0, maxLength - 1).trim()}…`;
+    };
+
+    const resolveImage = (images) => {
+        if (Array.isArray(images) && images.length && images[0]) {
+            return images[0];
+        }
+        if (typeof images === 'string' && images.trim()) {
+            return images.trim();
+        }
+        return FALLBACK_IMAGE;
+    };
+
+    const formatPrice = (value) => {
+        if (value === null || value === undefined || value === '') {
+            return 'Price on request';
+        }
+        if (typeof value === 'number') {
+            return lkrFormatter.format(value);
+        }
+        const numeric = Number(String(value).replace(/[^0-9.\-]/g, ''));
+        if (Number.isNaN(numeric)) {
+            return String(value);
+        }
+        return lkrFormatter.format(numeric);
+    };
+
+    const deriveFeatures = (property = {}) => {
+        const candidates = property.features || property.featureTags || [];
+        const base = Array.isArray(candidates) ? candidates.filter(Boolean) : [];
+
+        // Add bedrooms and bathrooms as feature tags if available
+        if (property.bedrooms) {
+            base.unshift(`${property.bedrooms} Bedroom${property.bedrooms > 1 ? 's' : ''}`);
+        }
+        if (property.bathrooms) {
+            base.unshift(`${property.bathrooms} Bathroom${property.bathrooms > 1 ? 's' : ''}`);
+        }
+
+        return base;
+    };
+
+    const setStatus = (message, state = 'loading') => {
+        propertiesGrid.innerHTML = `<div class="properties-status properties-status--${state}" style="display:flex;align-items:center;justify-content:center;min-height:200px;padding:30px;text-align:center;background:rgba(255,255,255,0.8);border:1px dashed rgba(0,0,0,0.1);border-radius:20px;">${message}</div>`;
+    };
+
+    const createDetail = (iconClass, value) => {
+        const detail = document.createElement('div');
+        detail.className = 'property-detail';
+        const icon = document.createElement('i');
+        icon.className = iconClass;
+        const text = document.createElement('span');
+        text.textContent = value;
+        detail.append(icon, text);
+        return detail;
+    };
+
+    const createPropertyCard = (property = {}) => {
+        const cardId = property.id ? String(property.id) : `listing-${Math.random().toString(36).slice(2, 9)}`;
+        const card = document.createElement('div');
+        card.className = 'property-card';
+        card.id = `property-${cardId}`;
+
+        const imageWrapper = document.createElement('div');
+        imageWrapper.className = 'property-image';
+        imageWrapper.style.backgroundImage = `url('${resolveImage(property.images)}')`;
+
+        const tag = document.createElement('div');
+        tag.className = 'property-tag';
+        tag.textContent = property.propertyType || property.category || 'Featured';
+        imageWrapper.appendChild(tag);
+
+        const content = document.createElement('div');
+        content.className = 'property-content';
+
+        const title = document.createElement('h3');
+        title.className = 'property-title';
+        title.textContent = property.title || property.name || 'Untitled Property';
+        content.appendChild(title);
+
+        const details = document.createElement('div');
+        details.className = 'property-details';
+        const locationText = property.address || property.city || property.location || 'Location available on request';
+        details.append(
+            createDetail('fas fa-map-marker-alt', locationText),
+            createDetail('fas fa-expand', property.area || property.size || 'Size not specified'),
+            createDetail('fas fa-tag', `Ref: ${cardId}`)
+        );
+        content.appendChild(details);
+
+        const price = document.createElement('div');
+        price.className = 'property-price';
+        price.textContent = formatPrice(property.price);
+        content.appendChild(price);
+
+        const description = document.createElement('div');
+        description.className = 'property-description';
+        description.textContent = truncate(property.description || property.summary || 'Contact us for more information.', 100);
+        content.appendChild(description);
+
+        const features = deriveFeatures(property);
+        if (features.length) {
+            const featureWrapper = document.createElement('div');
+            featureWrapper.className = 'property-features';
+            features.slice(0, 6).forEach(feature => {
+                const chip = document.createElement('span');
+                chip.className = 'feature-tag';
+                chip.textContent = feature;
+                featureWrapper.appendChild(chip);
+            });
+            content.appendChild(featureWrapper);
+        }
+
+        const viewDetailsBtn = document.createElement('button');
+        viewDetailsBtn.className = 'view-details-btn';
+        viewDetailsBtn.innerHTML = '<i class="fas fa-eye"></i> View Full Details';
+        viewDetailsBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openPropertyModal(property);
+        });
+        content.appendChild(viewDetailsBtn);
+
+        const shareButton = document.createElement('button');
+        shareButton.type = 'button';
+        shareButton.textContent = 'Share';
+        shareButton.style.cssText = 'margin-top:10px;background-color:var(--secondary);color:#fff;padding:8px 16px;border:none;border-radius:20px;cursor:pointer;font-weight:500;';
+        shareButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const handler = window.shareProperty;
+            if (typeof handler === 'function') {
+                handler(cardId);
+                return;
+            }
+            const url = `${window.location.origin}${window.location.pathname}#property-${cardId}`;
+            (navigator.clipboard?.writeText(url) ?? Promise.reject()).then(() => {
+                alert('Link copied to clipboard:\n' + url);
+            }).catch(() => {
+                prompt('Copy this link to share:', url);
+            });
+        });
+        content.appendChild(shareButton);
+
+        // Make entire card clickable
+        card.addEventListener('click', () => {
+            openPropertyModal(property);
+        });
+
+        card.append(imageWrapper, content);
+        return card;
+    };
+
+    const normalizePayload = (payload) => {
+        if (Array.isArray(payload)) {
+            return payload;
+        }
+        if (Array.isArray(payload?.data)) {
+            return payload.data;
+        }
+        if (Array.isArray(payload?.items)) {
+            return payload.items;
+        }
+        return [];
+    };
+
+    const renderProperties = (properties) => {
+        if (!properties.length) {
+            setStatus('No properties available right now. Please check back soon.', 'empty');
+            return;
+        }
+        propertiesGrid.innerHTML = '';
+        const fragment = document.createDocumentFragment();
+        properties.forEach(property => {
+            fragment.appendChild(createPropertyCard(property));
+        });
+        propertiesGrid.appendChild(fragment);
+
+        // Add cache status indicator
+        updateCacheStatus(properties.length);
+    };
+
+    const updateCacheStatus = (count) => {
+        let statusDiv = document.getElementById('cache-status');
+        if (!statusDiv) {
+            statusDiv = document.createElement('div');
+            statusDiv.id = 'cache-status';
+            statusDiv.style.cssText = `
+                text-align: center;
+                margin: 20px 0;
+                padding: 10px;
+                color: var(--gray);
+                font-size: 14px;
+            `;
+            const section = document.querySelector('.container > .properties-grid')?.parentElement;
+            if (section) {
+                section.appendChild(statusDiv);
+            }
+        }
+
+        const timestamp = cacheUtils.getTimestamp();
+        const age = timestamp ? Date.now() - timestamp : 0;
+        const ageMinutes = Math.floor(age / 60000);
+        const ageSeconds = Math.floor((age % 60000) / 1000);
+
+        let timeStr = '';
+        if (timestamp) {
+            if (ageMinutes > 0) {
+                timeStr = `Updated ${ageMinutes} minute${ageMinutes > 1 ? 's' : ''} ago`;
+            } else {
+                timeStr = `Updated ${ageSeconds} second${ageSeconds !== 1 ? 's' : ''} ago`;
+            }
+        } else {
+            timeStr = 'Just now';
+        }
+
+        statusDiv.innerHTML = `
+            <i class="fas fa-home"></i> Showing ${count} propert${count !== 1 ? 'ies' : 'y'}
+            ${timestamp ? `<span style="margin-left: 10px;">•</span> ${timeStr}` : ''}
+            <span style="margin-left: 10px;">•</span>
+            <i class="fas fa-database"></i> Cached for offline access
+        `;
+    };
+
+    const fetchProperties = async (forceRefresh = false) => {
+        // Check if we have valid cached data and should use it
+        const cachedData = cacheUtils.load();
+        const hasCachedData = cachedData && cachedData.length > 0;
+        const cacheIsValid = cacheUtils.isValid();
+
+        // Use cache immediately if valid and not forcing refresh
+        if (!forceRefresh && hasCachedData && cacheIsValid) {
+            console.log('📦 Using cached properties (age:', Math.round((Date.now() - cacheUtils.getTimestamp()) / 1000), 'seconds)');
+            renderProperties(cachedData);
+
+            // Still fetch in background to check for updates
+            fetchPropertiesInBackground();
+            return;
+        }
+
+        // Show loading or cached data while fetching
+        if (hasCachedData) {
+            console.log('🔄 Refreshing properties from server...');
+            renderProperties(cachedData);
+            addRefreshIndicator();
+        } else {
+            setStatus('Loading properties…', 'loading');
+        }
+
+        try {
+            const response = await fetch(API_ENDPOINT, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                mode: 'cors',
+            });
+
+            if (!response.ok) {
+                throw new Error(`Request failed with status ${response.status}`);
+            }
+
+            const payload = await response.json();
+            const properties = normalizePayload(payload);
+
+            // Check if data has changed
+            if (hasCachedData) {
+                const hasChanged = JSON.stringify(cachedData) !== JSON.stringify(properties);
+                if (hasChanged) {
+                    console.log('🆕 New properties detected! Updating...');
+                    showUpdateNotification(properties.length - cachedData.length);
+                } else {
+                    console.log('✅ Properties are up to date');
+                }
+            }
+
+            // Save to cache and render
+            cacheUtils.save(properties);
+            renderProperties(properties);
+            removeRefreshIndicator();
+
+        } catch (error) {
+            console.error('Failed to load properties from server', error);
+
+            // If we have cached data, use it as fallback
+            if (hasCachedData) {
+                console.log('⚠️ Server unreachable, using cached data');
+                renderProperties(cachedData);
+                showOfflineNotification();
+                removeRefreshIndicator();
+                return;
+            }
+
+            // No cache, show error
+            const isCorsError = error.message.includes('Failed to fetch') ||
+                               error.name === 'TypeError';
+
+            if (isCorsError) {
+                console.error('CORS Error Detected. Troubleshooting steps:');
+                console.error('1. Ensure your ERP server is running at:', API_ENDPOINT);
+                console.error('2. Update CORS headers in your ERP to allow origin:', window.location.origin);
+                console.error('3. Restart your Next.js development server');
+
+                setStatus(
+                    `<div style="color:#d32f2f;">
+                        <i class="fas fa-exclamation-triangle" style="font-size:2rem;margin-bottom:15px;"></i>
+                        <h3 style="margin-bottom:10px;">Unable to Connect to Property Database</h3>
+                        <p style="margin-bottom:15px;">The property server is not accessible from this location.</p>
+                        <details style="text-align:left;background:rgba(0,0,0,0.05);padding:15px;border-radius:8px;margin-top:15px;">
+                            <summary style="cursor:pointer;font-weight:600;margin-bottom:10px;">Developer Information</summary>
+                            <p style="margin:5px 0;"><strong>Error:</strong> CORS policy blocking request</p>
+                            <p style="margin:5px 0;"><strong>API Endpoint:</strong> ${API_ENDPOINT}</p>
+                            <p style="margin:5px 0;"><strong>Current Origin:</strong> ${window.location.origin}</p>
+                            <p style="margin:10px 0 5px;"><strong>Fix:</strong></p>
+                            <ol style="margin-left:20px;">
+                                <li>Ensure ERP server is running</li>
+                                <li>Add '<code>${window.location.origin}</code>' to allowed origins</li>
+                                <li>Restart the Next.js server</li>
+                            </ol>
+                        </details>
+                    </div>`,
+                    'error'
+                );
+            } else {
+                setStatus('We could not load properties at the moment. Please try again later.', 'error');
+            }
+        }
+    };
+
+    // Background fetch to check for updates without showing loading
+    const fetchPropertiesInBackground = async () => {
+        try {
+            const response = await fetch(API_ENDPOINT, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+                mode: 'cors',
+            });
+
+            if (response.ok) {
+                const payload = await response.json();
+                const properties = normalizePayload(payload);
+                const cachedData = cacheUtils.load();
+
+                // Check if data changed
+                if (JSON.stringify(cachedData) !== JSON.stringify(properties)) {
+                    console.log('🔔 New properties available! Click to refresh.');
+                    cacheUtils.save(properties);
+                    showRefreshButton(properties);
+                }
+            }
+        } catch (error) {
+            // Silent fail for background fetch
+            console.log('Background fetch failed (this is okay):', error.message);
+        }
+    };
+
+    // Notification utilities
+    const showOfflineNotification = () => {
+        const notification = document.createElement('div');
+        notification.id = 'offline-notification';
+        notification.style.cssText = `
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: #ff9800;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 9999;
+            animation: slideInRight 0.3s ease;
+        `;
+        notification.innerHTML = `
+            <i class="fas fa-wifi-slash"></i>
+            <strong>Offline Mode</strong><br>
+            <small>Showing cached properties. Server is unreachable.</small>
+        `;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+    };
+
+    const showUpdateNotification = (newCount) => {
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 9999;
+            animation: slideInRight 0.3s ease;
+        `;
+
+        const message = newCount > 0
+            ? `${newCount} new ${newCount === 1 ? 'property' : 'properties'} added!`
+            : 'Properties updated!';
+
+        notification.innerHTML = `
+            <i class="fas fa-check-circle"></i>
+            <strong>${message}</strong>
+        `;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    };
+
+    const showRefreshButton = (newProperties) => {
+        let refreshBtn = document.getElementById('refresh-button');
+        if (refreshBtn) return; // Already showing
+
+        refreshBtn = document.createElement('button');
+        refreshBtn.id = 'refresh-button';
+        refreshBtn.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 9999;
+            animation: bounce 0.5s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        `;
+        refreshBtn.innerHTML = `
+            <i class="fas fa-sync-alt"></i>
+            New Properties Available - Click to Refresh
+        `;
+
+        refreshBtn.addEventListener('click', () => {
+            renderProperties(newProperties);
+            refreshBtn.remove();
+            showUpdateNotification(newProperties.length - (cacheUtils.load()?.length || 0));
+        });
+
+        document.body.appendChild(refreshBtn);
+    };
+
+    const addRefreshIndicator = () => {
+        const indicator = document.createElement('div');
+        indicator.id = 'refresh-indicator';
+        indicator.style.cssText = `
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 9999;
+        `;
+        indicator.innerHTML = '<i class="fas fa-sync fa-spin"></i> Checking for updates...';
+        document.body.appendChild(indicator);
+    };
+
+    const removeRefreshIndicator = () => {
+        const indicator = document.getElementById('refresh-indicator');
+        if (indicator) indicator.remove();
+    };
+
+    // Modal functionality
+    let currentProperty = null;
+    let currentImageIndex = 0;
+
+    window.openPropertyModal = function(property) {
+        currentProperty = property;
+        currentImageIndex = 0;
+
+        const modal = document.getElementById('propertyModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalDetailsGrid = document.getElementById('modalDetailsGrid');
+        const modalFeatures = document.getElementById('modalFeatures');
+        const modalFeaturesContainer = document.getElementById('modalFeaturesContainer');
+
+        // Set title and price
+        modalTitle.textContent = property.title || property.name || 'Untitled Property';
+        modalPrice.textContent = formatPrice(property.price);
+
+        // Set description
+        modalDescription.textContent = property.description || property.summary || 'Contact us for more information about this property.';
+
+        // Set details
+        modalDetailsGrid.innerHTML = '';
+        const details = [
+            { icon: 'fas fa-map-marker-alt', label: 'Location', value: property.address || property.city || 'Location available on request' },
+            { icon: 'fas fa-expand', label: 'Area', value: property.area || property.size || 'Size not specified' },
+            { icon: 'fas fa-home', label: 'Type', value: property.propertyType || property.category || 'Property' },
+            { icon: 'fas fa-tag', label: 'Reference', value: property.id ? `Ref: ${property.id}` : 'N/A' },
+        ];
+
+        if (property.bedrooms) {
+            details.push({ icon: 'fas fa-bed', label: 'Bedrooms', value: property.bedrooms });
+        }
+        if (property.bathrooms) {
+            details.push({ icon: 'fas fa-bath', label: 'Bathrooms', value: property.bathrooms });
+        }
+
+        details.forEach(detail => {
+            const item = document.createElement('div');
+            item.className = 'modal-detail-item';
+            item.innerHTML = `
+                <i class="${detail.icon}"></i>
+                <div>
+                    <div style="font-size: 0.9rem; color: var(--gray);">${detail.label}</div>
+                    <div style="font-weight: 600;">${detail.value}</div>
+                </div>
+            `;
+            modalDetailsGrid.appendChild(item);
+        });
+
+        // Set features
+        const features = deriveFeatures(property);
+        if (features.length) {
+            modalFeaturesContainer.style.display = 'block';
+            modalFeatures.innerHTML = '';
+            features.forEach(feature => {
+                const chip = document.createElement('span');
+                chip.className = 'feature-tag';
+                chip.textContent = feature;
+                modalFeatures.appendChild(chip);
+            });
+        } else {
+            modalFeaturesContainer.style.display = 'none';
+        }
+
+        // Set images
+        updateModalImage();
+
+        // Show modal
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeModal = function() {
+        const modal = document.getElementById('propertyModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        currentProperty = null;
+    };
+
+    window.updateModalImage = function() {
+        if (!currentProperty) return;
+
+        const images = Array.isArray(currentProperty.images) && currentProperty.images.length
+            ? currentProperty.images
+            : [FALLBACK_IMAGE];
+
+        const modalImage = document.getElementById('modalImage');
+        const imageCounter = document.getElementById('imageCounter');
+        const prevBtn = document.querySelector('.image-nav.prev');
+        const nextBtn = document.querySelector('.image-nav.next');
+
+        modalImage.src = images[currentImageIndex] || FALLBACK_IMAGE;
+
+        if (images.length > 1) {
+            imageCounter.style.display = 'block';
+            imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+            prevBtn.style.display = 'flex';
+            nextBtn.style.display = 'flex';
+        } else {
+            imageCounter.style.display = 'none';
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+        }
+    };
+
+    window.prevImage = function() {
+        if (!currentProperty) return;
+        const images = Array.isArray(currentProperty.images) && currentProperty.images.length
+            ? currentProperty.images
+            : [FALLBACK_IMAGE];
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        updateModalImage();
+    };
+
+    window.nextImage = function() {
+        if (!currentProperty) return;
+        const images = Array.isArray(currentProperty.images) && currentProperty.images.length
+            ? currentProperty.images
+            : [FALLBACK_IMAGE];
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateModalImage();
+    };
+
+    window.contactAboutProperty = function() {
+        if (!currentProperty) return;
+        const contactSection = document.getElementById('contact');
+        const propertySelect = document.getElementById('property');
+
+        closeModal();
+
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        if (propertySelect) {
+            setTimeout(() => {
+                const title = currentProperty.title || currentProperty.name || 'Property';
+                const options = Array.from(propertySelect.options);
+                const matchingOption = options.find(opt =>
+                    opt.text.toLowerCase().includes(title.toLowerCase().slice(0, 20))
+                );
+                if (matchingOption) {
+                    propertySelect.value = matchingOption.value;
+                }
+            }, 500);
+        }
+    };
+
+    window.whatsappInquiry = function() {
+        if (!currentProperty) return;
+        const title = currentProperty.title || currentProperty.name || 'Property';
+        const price = formatPrice(currentProperty.price);
+        const ref = currentProperty.id || 'N/A';
+        const message = `Hi! I'm interested in: ${title}\nPrice: ${price}\nRef: ${ref}\n\nCould you provide more details?`;
+        const whatsappUrl = `https://wa.me/94752539988?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    };
+
+    window.shareCurrentProperty = function() {
+        if (!currentProperty) return;
+        const cardId = currentProperty.id ? String(currentProperty.id) : 'property';
+        const propertyUrl = `${window.location.origin}${window.location.pathname}#property-${cardId}`;
+        const propertyTitle = currentProperty.title || currentProperty.name || 'Property';
+
+        if (navigator.share) {
+            navigator.share({
+                title: `Prime Property: ${propertyTitle}`,
+                text: `Check out this premium property: ${propertyTitle} - ${formatPrice(currentProperty.price)}`,
+                url: propertyUrl
+            }).catch(console.error);
+        } else {
+            navigator.clipboard.writeText(propertyUrl).then(() => {
+                alert('Link copied to clipboard:\n' + propertyUrl);
+            }).catch(() => {
+                prompt('Copy this link to share:', propertyUrl);
+            });
+        }
+    };
+
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    // Close modal when clicking outside
+    document.getElementById('propertyModal')?.addEventListener('click', (e) => {
+        if (e.target.id === 'propertyModal') {
+            closeModal();
+        }
+    });
+
+    // Add manual refresh button to section title
+    const addRefreshButtonToTitle = () => {
+        const sectionTitle = document.querySelector('.section-title h2');
+        if (sectionTitle && !document.getElementById('manual-refresh-btn')) {
+            const refreshBtn = document.createElement('button');
+            refreshBtn.id = 'manual-refresh-btn';
+            refreshBtn.style.cssText = `
+                margin-left: 15px;
+                background: var(--secondary);
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 20px;
+                cursor: pointer;
+                font-size: 14px;
+                transition: var(--transition);
+            `;
+            refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh';
+            refreshBtn.addEventListener('click', () => {
+                refreshBtn.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> Refreshing...';
+                refreshBtn.disabled = true;
+                fetchProperties(true).finally(() => {
+                    refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh';
+                    refreshBtn.disabled = false;
+                });
+            });
+            sectionTitle.appendChild(refreshBtn);
+        }
+    };
+
+    // Set up periodic background checks (every 2 minutes)
+    const startPeriodicChecks = () => {
+        setInterval(() => {
+            const cachedData = cacheUtils.load();
+            if (cachedData && cachedData.length > 0) {
+                console.log('🔍 Periodic check for property updates...');
+                fetchPropertiesInBackground();
+            }
+        }, 2 * 60 * 1000); // Check every 2 minutes
+    };
+
+    // Initialize
+    fetchProperties();
+    addRefreshButtonToTitle();
+    startPeriodicChecks();
+})();
+</script>
+<script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Form submission handling
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your inquiry! We will contact you shortly.');
+                this.reset();
+            });
+        }
+        
+        // Property card hover effect enhancement
+        const propertyCards = document.querySelectorAll('.property-card');
+        propertyCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Property sharing function with unique URLs
+        function shareProperty(ref) {
+            const propertyUrl = `${window.location.origin}${window.location.pathname}#property-${ref}`;
+            const propertyTitle = document.querySelector(`#property-${ref} .property-title`).textContent;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: `Prime Property: ${ref}`,
+                    text: `Check out this premium property: ${propertyTitle}`,
+                    url: propertyUrl
+                }).catch(console.error);
+            } else {
+                // Fallback for browsers without Web Share API
+                navigator.clipboard.writeText(propertyUrl).then(() => {
+                    alert('Link copied to clipboard:\n' + propertyUrl);
+                }).catch(() => {
+                    prompt('Copy this link to share:', propertyUrl);
+                });
+            }
+        }
+        
+        // Highlight property when URL has fragment
+        function highlightPropertyFromUrl() {
+            if (window.location.hash) {
+                const targetElement = document.querySelector(window.location.hash);
+                if (targetElement) {
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }, 300);
+                }
+            }
+        }
+        
+        // Initial highlight on page load
+        window.addEventListener('load', highlightPropertyFromUrl);
+        
+        // Highlight when hash changes
+        window.addEventListener('hashchange', highlightPropertyFromUrl);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
